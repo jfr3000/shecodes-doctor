@@ -1,0 +1,29 @@
+{
+  "name": "shecodes-doctor",
+  "version": "1.0.0",
+  "description": "shecodes doctor checks the .vimrc file for problems",
+  "main": "shecodes-doctor.js",
+  "scripts": {
+    "test": "lab -v test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shecodes-students/shecodes-doctor.git"
+  },
+  "keywords": [
+    "vim",
+    "vimrc",
+    "tabs",
+    "indent",
+    "indentation"
+  ],
+  "author": "Julia Friesel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shecodes-students/shecodes-doctor/issues"
+  },
+  "devDependencies": {
+      "expect": "^1.1.0",
+      "lab": "^5.1.0"
+  }
+}

@@ -1,0 +1,8 @@
+{
+    "globals": {
+        "process": false,
+        "clearTimeout": false,
+        "console": false,
+        "require": false
+    }
+}
