@@ -1,18 +1,25 @@
-var sshcheck = require('./lib/sshcheck');
-var vimrccheck = require('./lib/vimrccheck');
-
-
-//All together now.
-function shecodesdoctor() {
-    print(vimrccheck.getReport());
-    print(sshcheck.getReport());
-}
+var plugins = ['sshcheck','vimrccheck']
 
 function print(feedback) {
     console.log(feedback.preface);
-    console.log(feedback.errormessages.join('\n'));
+    if (feedback.errormessages.length > 0) {
+        console.log(feedback.errormessages.join('\n'));
+    }
 }
 
-shecodesdoctor();
+function shecodesdoctor() {
+    var isOkay = true;
+    plugins.forEach(function (plugin) {
+        var module = require('./lib/' + plugin);
+        var report = module.getReport();
+        if (report.errormessages.length > 0) {
+            isOkay = false;
+        }
+        print(report);
+    });
+    return isOkay;
+}
 
+var isOkay = shecodesdoctor();
+process.exit(isOkay ? 0 : 1);
 
