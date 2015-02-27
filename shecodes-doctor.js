@@ -4,8 +4,13 @@ var vimrccheck = require('./lib/vimrccheck');
 
 //All together now.
 function shecodesdoctor() {
-    vimrccheck.printMessage(vimrccheck.checkArray(vimrccheck.getFileContent(vimrccheck.vimrcFile)));
-    sshcheck.printSSHMessage(sshcheck.checkSSHSettings(sshcheck.getSSHSettings()));
+    print(vimrccheck.getReport());
+    print(sshcheck.getReport());
+}
+
+function print(feedback) {
+    console.log(feedback.preface);
+    console.log(feedback.errormessages.join('\n'));
 }
 
 shecodesdoctor();

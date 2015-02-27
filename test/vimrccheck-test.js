@@ -12,13 +12,14 @@ var a = 'set expandtab';
 var b = 'set tabstop=4';
 var c = 'set softtabstop=4';
 var d = 'set shiftwidth=4';
-var e = 'You should make the following additions or corrections in your .vimrc file, making sure there is no whitespace after the equals sign:';
 
-lab.test('checkArray should work correctly', function(done) {
-    expect(checkArray(correctVimrc).length).toEqual(1);
-    expect(checkArray(correctVimrc)).toContain(e);
-    expect(checkArray([])).toContain(a, b, c, d, e);
-    expect(checkArray(incorrectVimrc)).toContain(b, d, e);
+lab.test('checkArray returns an empty array when there are no problems', function(done) {
+    expect(checkArray(correctVimrc).length).toEqual(0);
+    done();
+});
+lab.test('checkArray returns the correct error messages', function(done) {
+    expect(checkArray([])).toContain(a, b, c, d);
+    expect(checkArray(incorrectVimrc)).toContain(b, d);
     done();
 });
 
