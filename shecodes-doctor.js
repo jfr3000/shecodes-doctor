@@ -1,9 +1,16 @@
-var plugins = ['sshcheck','vimrccheck']
+var chalk = require('chalk');
+var plugins = ['sshcheck','vimrccheck'];
 
 function print(feedback) {
-    console.log(feedback.preface);
+    var color;
+    if (feedback.errormessages.length > 0){
+        color = chalk.red;
+    } else {
+        color = chalk.green;
+    }
+    console.log(color(feedback.preface));
     if (feedback.errormessages.length > 0) {
-        console.log(feedback.errormessages.join('\n'));
+        console.log(color(feedback.errormessages.join('\n')));
     }
 }
 

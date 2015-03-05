@@ -23,7 +23,10 @@
     "url": "https://github.com/shecodes-students/shecodes-doctor/issues"
   },
   "devDependencies": {
-      "expect": "^1.1.0",
-      "lab": "^5.1.0"
+    "expect": "^1.1.0",
+    "lab": "^5.1.0"
+  },
+  "dependencies": {
+    "chalk": "~1.0.0"
   }
 }
